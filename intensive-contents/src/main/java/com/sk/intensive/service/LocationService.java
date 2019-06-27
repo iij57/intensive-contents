@@ -62,17 +62,17 @@ public class LocationService {
         	String juso = gpsToAddress.gpsToAddress(geo[0].toString(), geo[1].toString());
         	
         	LocationEntity locationEntity = new LocationEntity();
-    		locationEntity.setJuso(juso);
+        	locationEntity.setJuso(juso);
     		locationEntity.setWgs84X(geo[0].toString());
     		locationEntity.setWgs84Y(geo[1].toString());
     		
     		locationRepository.save(locationEntity);
-    		
+    		returnValue.add(locationEntity);
         }else {
 
         	for(Object[] locationNative : locationsNative) {
         		LocationEntity locationEntity = new LocationEntity();
-        		
+        		locationEntity.setAddrId(Long.parseLong(locationNative[0].toString()));
         		locationEntity.setJuso(locationNative[1].toString());
         		locationEntity.setWgs84X(locationNative[2].toString());
         		locationEntity.setWgs84Y(locationNative[3].toString());

@@ -48,9 +48,9 @@ public class ContentController {
 		return locationService.getLocations();
 	}
     
-    @GetMapping("/v1/locations/{geo}")
+    @GetMapping("/v1/locations/{geo}/")
     public List<LocationEntity> getLocationsByGeo(@PathVariable("geo") Object[] geo) throws Exception {
-        logger.info("CALL API LocationInfoController.getLocationsByGeo {geo X: " + geo[0].toString() + ", geo Y: "+ geo[1 ].toString() + "}");
+        logger.info("CALL API LocationInfoController.getLocationsByGeo {geo X: " + geo[0].toString() + ", geo Y: "+ geo[1].toString() + "}");
         return locationService.getLocationsByGeo(geo);
     }
     
