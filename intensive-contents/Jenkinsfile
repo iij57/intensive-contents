@@ -18,7 +18,7 @@ node {
             dir("/apps/files/workspaces/intensive-contents"){
                   	sh "cp ./target/intensive-content-1.0-SNAPSHOT.jar src/main/docker/"
             }
-            dir("/apps/files/workspaces/intensive-content/src/main/docker"){
+            dir("/apps/files/workspaces/intensive-contents/src/main/docker"){
                    	sh "docker build -t iij57/intensive-content:1.0 -t iij57/intensive-content:latest . "
             }
         }
