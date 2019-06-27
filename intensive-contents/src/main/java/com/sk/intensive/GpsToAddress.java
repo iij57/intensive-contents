@@ -36,7 +36,7 @@ public class GpsToAddress {
 
 	private String getApiAddress() {
 		String apiURL = "https://maps.googleapis.com/maps/api/geocode/json?"
-				+ "key=AIzaSyBGV-mM1nFYS1Lnf7eJPyRIGqG9poitHlc"
+				+ "key=AIzaSyB4px7FZi3qh7aUY6XM5SCdlOcMC09e89w"
 				+ "&latlng="+ latitude + "," + longitude 
 				+ "&language=ko";
 		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ apiURL @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
@@ -59,10 +59,15 @@ public class GpsToAddress {
 	}
 
 	private String getRegionAddress(String jsonString) throws JsonParseException, JsonMappingException, IOException {
+		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ jsonString @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+		System.out.println("jsonString => "+jsonString);
 		ObjectMapper mapper = new ObjectMapper();
         JsonNode array =  mapper.readValue(jsonString, JsonNode.class);
         JsonNode object = array.get("results").get(0);
+        System.out.println("array.get(\"results\").get(0) => "+object);
         String address = object.get("formatted_address").textValue();
+        System.out.println("object.get(\"formatted_address\").textValue() => "+address);
+        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
         
         return address; 
 	}
