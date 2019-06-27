@@ -1,24 +1,24 @@
 package com.sk.intensive.controller;
 
 
-import com.sk.intensive.service.ContentService;
-import com.sk.intensive.service.LocationService;
-import com.sk.intensive.dto.ContentDTO;
-import com.sk.intensive.dto.LocationDTO;
-import com.sk.intensive.dto.ResponseDTO;
-import com.sk.intensive.entity.ContentEntity;
-import com.sk.intensive.entity.LocationEntity;
-
 import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.MatrixVariable;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.sk.intensive.dto.ContentDTO;
+import com.sk.intensive.dto.LocationDTO;
+import com.sk.intensive.entity.ContentEntity;
+import com.sk.intensive.entity.LocationEntity;
+import com.sk.intensive.service.ContentService;
+import com.sk.intensive.service.LocationService;
 
 import lombok.AllArgsConstructor;
 
@@ -49,7 +49,7 @@ public class ContentController {
 	}
     
     @GetMapping("/v1/locations/{geo}/")
-    public List<LocationEntity> getLocationsByGeo(@PathVariable("geo") Object[] geo) throws Exception {
+    public List<LocationEntity> getLocationsByGeo(@MatrixVariable("geo") Object[] geo) throws Exception {
         logger.info("CALL API LocationInfoController.getLocationsByGeo {geo X: " + geo[0].toString() + ", geo Y: "+ geo[1].toString() + "}");
         return locationService.getLocationsByGeo(geo);
     }
