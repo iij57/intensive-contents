@@ -16,10 +16,10 @@ node {
 
         stage('make') {
             dir("/apps/files/workspaces/intensive-contents"){
-                  	sh "cp ./target/intensive-contents-1.0-SNAPSHOT.jar src/main/docker/"
+                  	sh "cp ./target/intensive-content-1.0-SNAPSHOT.jar src/main/docker/"
             }
-            dir("/apps/files/workspaces/intensive-contents/src/main/docker"){
-                   	sh "docker build -t iij57/intensive-contents:1.0 -t iij57/intensive-contents:latest . "
+            dir("/apps/files/workspaces/intensive-content/src/main/docker"){
+                   	sh "docker build -t iij57/intensive-content:1.0 -t iij57/intensive-content:latest . "
             }
         }
         
