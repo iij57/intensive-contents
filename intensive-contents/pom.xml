@@ -5,11 +5,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.sk.svdonation</groupId>
-	<artifactId>sv-donation-backend</artifactId>
+	<groupId>com.sk.intensive</groupId>
+	<artifactId>intensive-content</artifactId>
 	<version>1.0-SNAPSHOT</version>
 
-	<name>sv-donation-backend</name>
+	<name>intensive-content-backend</name>
 	<!-- FIXME change it to the project's website -->
 	<url>http://www.example.com</url>
 
@@ -24,7 +24,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 		<maven.test.skip>true</maven.test.skip>
-		<start-class>com.sk.svdonation.SVDonationBackend</start-class>
+		<start-class>com.sk.intensive.Intensive</start-class>
 		<swagger.version>2.9.2</swagger.version>
 		<timestamp>${maven.build.timestamp}</timestamp>
 		<maven.build.timestamp.format>yyyy-MM-dd-HH-mm</maven.build.timestamp.format>

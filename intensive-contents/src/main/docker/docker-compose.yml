@@ -1,7 +1,7 @@
 version: '3.7'
  
 services:
-  db:
+  db-content:
     image: mariadb
     restart: always
     healthcheck:
@@ -11,31 +11,31 @@ services:
       timeout: 1s
       retries: 5
     ports:
-      - "3306:3306"
+      - "3308:3306"
     container_name : db
     environment:
       - MYSQL_ROOT_PASSWORD=nexcore
-      - MYSQL_DATABASE=svdonation
-      - MYSQL_USER=svdonation
-      - MYSQL_PASSWORD=svdonation
+      - MYSQL_DATABASE=intensive
+      - MYSQL_USER=intensive
+      - MYSQL_PASSWORD=intensive
       - TZ=Asia/Seoul
     volumes:
       - /sw/svdonation/mariadb/data:/var/lib/mysql
       - /sw/svdonation/mariadb/conf.d:/etc/mysql/conf.d
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     
-  svdonation:
-    image: solutiondevteam/svdonation
+  intensive-content:
+    image: iij57/intensive-content:1.0
     restart: always
-    container_name : svdonation
+    container_name : intensive-content
     environment:
       - MYSQL_URL=db
-      - MYSQL_PORT=3306
-      - MYSQL_DATABASE=svdonation
-      - MYSQL_USER=svdonation
-      - MYSQL_PASSWORD=svdonation
+      - MYSQL_PORT=3308
+      - MYSQL_DATABASE=intensive
+      - MYSQL_USER=intensive
+      - MYSQL_PASSWORD=intensive
       - TZ=Asia/Seoul
     ports:
-      - "8080:8080"
+      - "8082:8080"
     depends_on:
-      - db
+      - db-content
